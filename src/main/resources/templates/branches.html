@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Bank Branches</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 10%;
+			table-layout: auto;
+		}
+
+		th,
+		td {
+			border: 1px solid #ddd;
+			padding: 8px;
+			text-align: left;
+			white-space: nowrap;
+		}
+
+		th {
+			background-color: #f2f2f2;
+			color: #333;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 th:text="${bankName}" style="color: blue;"></h1>
+	<table>
+		<thead>
+			<tr>
+				<th class="branch-id">Branch Id</th>
+				<th class="branch-name">Branch Name</th>
+				<th class="branch-address">Address</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="branch : ${branches}">
+				<td class="branch-id" th:text="${branch.id}"></td>
+				<td class="branch-name" th:text="${branch.name}"></td>
+				<td class="branch-address" th:text="${branch.address}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>
